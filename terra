@@ -1,0 +1,15 @@
+provider "aws"{
+     region = "ap-south-1"
+}
+resource "aws_instance""daya"{
+   count = "1"
+   ami = "ami-0f5ee92e2d63afc18"
+   instance_type = "t2.micro"
+   key_name = "daya"
+   subnet_id = "subnet-0d39324bcf605ea55"
+   security_groups = ["sg-0bbb50f257c0b6c60"]
+   tags={
+    Name = "server"
+    Env = "dev"
+}
+}
